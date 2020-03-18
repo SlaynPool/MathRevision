@@ -45,6 +45,14 @@ tabsize=2
 \newcommand{\insertcode}[2]{\begin{itemize}\item[]\lstinputlisting[caption=#2,label=#1,style=Style1]{#1}\end{itemize}} 
 
 \newcommand{\reels}{\mathbb{R}}
+
+\renewcommand*{\overrightarrow}[1]{\vbox{\halign{##\cr 
+  \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
+  $#1\mskip2mu$\cr}}}
+  
+  
+\newcommand*{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert} 
+
 % \insertcode{"Scripts/example.pl"}{Nena would be proud.} 
 
 \begin{document}
@@ -243,7 +251,66 @@ $cos^4(\theta)=\frac{(e^{i\theta})^4+4(e^{i\theta})^3(e^{-i\theta})^1+6(e^{i\the
  
  $=\frac{1}{8}cos(4\theta)+\frac{3}{8}+\frac{1}{2}cos(2\theta)$
  
+ \section{Geometrie}
+ Un repère : Un point ; l'origine + n.vecteur (ou n nombre de dimension) \\
+ Dès que l'on a des vecteurs, et un point m(3;2), on peut ecrire $\overrightarrow{OM}= 3.\overrightarrow{i}+2\overrightarrow{j}$
+
+ Si M(3;2) et N (4;3) $\Rightarrow \overrightarrow{MN}=(4-3;7-2)=(1;5)$
  
+ 
+Norme d'un vecteur: Cela correspond à la ``longueur'' d'un vecteur que l'on notera $\norme{OM}$
+
+Relation de Chasles:
+$\overrightarrow{NM}+\overrightarrow{MK}=\overrightarrow{NK} \ \forall N,M,K$
+
+Théoreme du barycentre :
+de M, coefficient 3, N, coefficient 1, et K coefficient 7, alors \\
+barycentre de $(M;3),(N;1),(K;7)\Leftrightarrow 3.\overrightarrow{GM}+1.\overrightarrow{GN}+7.\overrightarrow{GK} = \overrightarrow{0}$\\
+$= 3(\overrightarrow{GO}+\overrightarrow{OM})+\overrightarrow{GO}+\overrightarrow{ON}+7(\overrightarrow{GO}+\overrightarrow{OK}=\overrightarrow{0}$\\
+$=11\overrightarrow{GO}+3\overrightarrow{OM}+\overrightarrow{ON}+7\overrightarrow{OK}=\overrightarrow{0}$\\
+$=\overrightarrow{OG}=\frac{3\overrightarrow{OM}+\overrightarrow{ON}+7\overrightarrow{OK}}{11}$\\
+Donc $\overrightarrow{OG} = \frac{3}{11}(X_M;Y_M)+\frac{1}{11}(X_N;Y_N)+\frac{7}{11}(X_K;Y_K)$
+
+\subsection{Les operations definies sur les vecteurs}
+Il y'a plusieurs operations defini: \\
+L'addition de $\overrightarrow{vecteur}$\\
+Le Produit externe: $\reels. \overrightarrow{vecteur}= \overrightarrow{UnVecteur}$\\
+Le Produit scalaire: $ \overrightarrow{vecteur} . \overrightarrow{vecteur} = \reels$\\
+Le Produit vectoriel: $ \overrightarrow{vecteur} . \overrightarrow{vecteur} =\overrightarrow{UnVecteur}$
+\subsubsection{Le produit scalaire}
+
+   \begin{figure}[h!]
+ \centering
+ \includegraphics[scale=3]{image/proscla.jpg}
+ \caption{Interpretation graphique }
+ \label{fig:net}
+ \end{figure}
+ $\overrightarrow{AB}.\overrightarrow{AC}= AH$\\
+ \faExclamationCircle $\overrightarrow{AB}.\overrightarrow{AC}\neq \overrightarrow{AC}.\overrightarrow{AB}$\\
+
+ Forme générale: $\overrightarrow{u}\overrightarrow{v}=\norme{u}.\norme{v}.cos(\overrightarrow{u},\overrightarrow{v})$\\
+ Donc si $\overrightarrow{u}.\overrightarrow{u}= \norme{u}.\norme{u}.cos(\overrightarrow{u},\overrightarrow{u})$\\
+ $=\norme{u}.\norme{u}.cos{0}$\\
+ $=\norme{u}^2.1$\\
+ $=\norme{u}^2$\\
+La distributivité fonctionne: \\
+$\overrightarrow{u}.(\overrightarrow{v}+\overrightarrow{w})=\overrightarrow{u}.\overrightarrow{v}+\overrightarrow{u}.\overrightarrow{w}$
+Quand on a les coordonnées des points, on s'embète pas :\\
+$(x;y).(x';y')=xx'+yy'$\\
+A noter que si $\overrightarrow{u}\perp\overrightarrow{v} \Rightarrow \overrightarrow{u}.\overrightarrow{v}=0$
+\subsubsection{La Norme}
+$||(x;y)||=\sqrt{x^2+y^2}$
+\subsubsection{Le produit Vectoriel}
+$\overrightarrow{u}\land\overrightarrow{v}=\overrightarrow{w}$\\
+avec $\overrightarrow{w}$ un vecteur perpendiculaire à $\overrightarrow{u}$et $\overrightarrow{v}$ orienté selon la regle de la main droite et où :\\
+$\norme{w}=\norme{u}.\norme{v}.sin(\overrightarrow{u},\overrightarrow{v})$
+Si $\overrightarrow{u}\perp\overrightarrow{v}$ alors :\\
+$\norme{w}=\norme{u}.\norme{v}$\\
+Si $\overrightarrow{u}$ et $\overrightarrow{v}$ colinéaires alors $\norme{w}=\overrightarrow{0}$\\
+Rappel :On dit que 2 vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$sont colinéaires lorsqu’il existe un réel $k$ tel que $\overrightarrow{v} =k\overrightarrow{u}$ 
+
+La distributivité fonctionne : $ \overrightarrow{u}\land(\overrightarrow{v}+\overrightarrow{w}$\\
+$=\overrightarrow{u}\land\overrightarrow{v}+\overrightarrow{u}\land\overrightarrow{w}$
 \end{document}
 
 
